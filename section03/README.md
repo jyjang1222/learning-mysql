@@ -36,9 +36,10 @@
 
 ## 데이터 테이블의 타입
 
-- 테이블의 데이터 타입에는 매우 많지만 주로 쓰이는 타입은 정해져있다,
+- 테이블의 데이터 타입 종류는 매우 많지만 주로 쓰이는 타입은 정해져있다,
 - 정수형에는 int
 - 문자열에는 varchar(length)
+  - char는 고정길이, varchar는 가변길이 이다.
 
 ## 테이블 명령문
 
@@ -60,10 +61,10 @@ CREATE TABLE cats
 ```
 
 - SHOW TABLES;
-  - 테이블 확인
+  - 테이블들의 확인 (현재 사용중인 데이터베이스)
 - SHOW COLUMNS FROM table_name;
   - 테이블 내의 칼럼들 확인
 - DESC table_name;
-  - 테이블 내의 칼럼들 확인
-- DROP TABLE table_name
+  - 테이블 내의 칼럼들 확인 (바로위 명령문과 기능 동일)
+- DROP TABLE table_name;
   - 테이블 삭제
