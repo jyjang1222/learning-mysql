@@ -17,4 +17,5 @@ VALUES ('Dora', 'Smith', 58);
 DROP TABLE employees;
 SHOW TABLES;
 DESC employees;
+SELECT * FROM employees;
 
