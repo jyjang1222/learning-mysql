@@ -32,12 +32,12 @@ VALUES  ('Charlie', 10),
 - SELECT \* FROM table_name;
   - 데이터 확인
 
-## 테이블의 Null열의 의미
+## 테이블 Null열의 의미
 
-| Field | Type        | Null |
-| ----- | ----------- | ---- |
-| name  | varchar(50) | YES  |
-| age   | int         | YES  |
+| Field | Type        | Null | Key | Default |
+| ----- | ----------- | ---- | --- | ------- |
+| name  | varchar(50) | YES  |     | Null    |
+| age   | int         | YES  |     | Null    |
 
 - Null이 YES이면 빈값의 데이터를 넣는 것을 허용한다는 의미이다.
 - 빈값의 데이터 넣기를 허용하지 않으려면 테이블을 정의할때 할수있다.
@@ -98,3 +98,53 @@ CREATE TABLE cats4(
 -- NOT NULL 키워드를 사용해서 NULL값을 수동으로 넣어도 들어가지 않는다
 INSERT INTO cats4(name, age) VALUES(NULL, NULL);
 ```
+
+## 테이블 기본키 지정하기
+
+- 기본키의 이름을 지정한 뒤에 **PRIMARY KEY (id_column_name)** 키워드를 사용
+
+```sql
+-- 방법1
+CREATE TABLE unique_cats (
+    cat_id INT NOT NULL,
+    name VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+);
+-- 방법2
+CREATE TABLE unique_cats (
+    cat_id INT NOT NULL PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+);
+/*
+| Field | Type        | Null | Key | Default | Extra |
+| ----- | ----------- | ---- | --- | ------- | ----- |
+| cat_id| int         | NO   | PRI | Null    |       |
+| name  | varchar(50) | YES  |     | Null    |       |
+| age   | int         | YES  |     | Null    |       |
+*/
+INSERT INTO unique_cats(cat_id, name, age) VALUES(1, 'Fred', 23);
+INSERT INTO unique_cats(cat_id, name, age) VALUES(2, 'Louise', 3);
+
+CREATE TABLE unique_cats2 (
+    cat_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+);
+/*
+| Field  | Type        | Null | Key | Default | Extra          |
+| ------ | ----------- | ---- | --- | ------- | -------------- |
+| cat_id | int         | NO   | PRI | Null    | auto_increment |
+| name   | varchar(50) | YES  |     | Null    |                |
+| age    | int         | YES  |     | Null    |                |
+*/
+INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
+INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
+INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
+INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
+```
+
+- 데이터가 같을 때 기본키를 지정해주면 고유한 데이터를 만들 수 있다.
+- **AUTO_INCREMENT** 키워드를 사용하면 키값이 1부터시작하고 값을 삽입하면 자동으로 1을 증가시켜주어 키값을 입력하는 수고를 덜수있다.

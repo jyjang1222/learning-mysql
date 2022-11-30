@@ -76,3 +76,27 @@ CREATE TABLE cats4(
     age INT NOT NULL DEFAULT 99
 );
 INSERT INTO cats4(name, age) VALUES(NULL, NULL);
+
+-- 데이터를 식별할수 있는 고유한 키 생성
+CREATE TABLE unique_cats (
+	cat_id INT NOT NULL,
+    name VARCHAR(100),
+    age int,
+    PRIMARY KEY (cat_id)
+);
+INSERT INTO unique_cats (cat_id, name, age)
+VALUES (1, 'James', 3);
+
+DESC unique_cats;
+SELECT * FROM unique_cats;
+
+CREATE TABLE unique_cats2 (
+	cat_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+);
+DESC unique_cats2;
+INSERT INTO unique_cats2(name, age)
+VALUES ('Skippy', 4);
+SELECT * FROM unique_cats2;
