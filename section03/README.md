@@ -46,15 +46,13 @@
 - 테이블 생성
 
 ```sql
-CREATE TABLE table_name
-    (
+CREATE TABLE table_name (
         column_name data_type,
         column_name data_type,
     )
 
 -- 예시
-CREATE TABLE cats
-    (
+CREATE TABLE cats (
         name VARCHAR(100),
         age INT,
     )
