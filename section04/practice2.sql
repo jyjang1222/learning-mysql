@@ -4,7 +4,7 @@ USE company;
 SELECT database();
 
 CREATE TABLE employees (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     middle_name VARCHAR(50),
