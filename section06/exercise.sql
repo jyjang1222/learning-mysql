@@ -47,4 +47,5 @@ DELETE FROM shirts
 WHERE article = 'tank top';
 DELETE FROM shirts;
 
-DROP TABLE shirts_db;
+DROP TABLE shirts;
+SHOW TABLES;
