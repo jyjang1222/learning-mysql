@@ -31,6 +31,7 @@ SELECT
 FROM books;
 ```
 
+- CONCAT_WS(Concatenate With Separator)
 - 칼럼의 값들을 연결시켜 나타내고 싶을때 사용하는 함수이다.
 
 ### SUBSTR() == SUBSTRING()
