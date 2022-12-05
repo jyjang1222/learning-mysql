@@ -9,6 +9,7 @@ SELECT DISTINCT author_fname, author_lname FROM books;
 
 - 중복되는 데이터들을 제외시켜서 하나만 표시해준다.
 - 칼럼이 여러개면 and 처럼 동시에 중복이여야 제외시켜준다.
+- SELECT 키워드와 칼럼명 앞에 작성하는 것에 유의한다.
 
 ## ORDER BY 키워드
 
@@ -35,7 +36,7 @@ ORDER BY author_lname, author_fname;
 - ORDER BY 2; 에서 2는 idx를 의미한다.
   - title: 1, author_fname: 2, author_lname: 3
 - ORDER BY 기준을 추가로 작성해줄수 있는데, 왼쪽부터 차례대로 우선 정렬한다.
-- 매우 유용한 키워드이다. - 비싼순으로 정렬한다든지 추천수대로 정렬한다든지
+- 정렬을 할때 매우 유용한 키워드이다. - 비싼순으로 정렬한다든지 추천수대로 정렬한다든지
 
 ## LIMIT 키워드
 
@@ -60,5 +61,34 @@ SELECT * FROM tbl LIMIT 95, 18446744073709551615;
 ## LIKE 키워드
 
 ```sql
+-- ~da~
+SELECT title FROM books
+WHERE author_fname LIKE '%da%';
+-- da~
+SELECT title, author_fname FROM books
+WHERE author_fname LIKE 'da%';
+-- 책이름이 정확히 'the'만 찾는다.
+SELECT title, author_fname FROM books
+WHERE title LIKE 'the';
+-- _가 3개이므로 길이가 3인 데이터가 모두 표시된다
+SELECT title, stock_quantity FROM books
+WHERE stock_quantity LIKE '___';
+-- 모든데이터출력
+SELECT title, stock_quantity FROM books
+WHERE stock_quantity LIKE '%';
 
+SELECT phone_number FROM numbers
+WHERE phone_number LIKE '___-____-____'
+-- 데이터에 %나_가 있는 경우 조회하기
+SELECT title FROM books
+WHERE title LIKE '%\%%';
+SELECT title FROM books
+WHERE title LIKE '%\_%';
 ```
+
+- '%da%' 에서 %는 ~를 의미한다.
+  - da앞뒤로 무언가가 있어야 한다는 의미는 아니다.
+- ''로 감싸줘야 하는것을 주의해야한다.
+- WHERE과 같이 써야하는것에 주의한다. (ORDER BY x)
+- \_는 길이를 의미한다. len만큼 \_추가
+- %나 \_를 조회하려면 이스케이프문자를 활용한다.

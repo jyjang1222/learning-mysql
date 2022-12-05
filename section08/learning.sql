@@ -36,3 +36,22 @@ SELECT title, released_year FROM books
 ORDER BY released_year DESC LIMIT 0, 5;
 SELECT title, released_year FROM books
 ORDER BY released_year DESC LIMIT 10, 1;
+SELECT title FROM books LIMIT 5, 1874361351351;
+
+-- LIKE
+SELECT title, author_fname FROM books
+WHERE author_fname LIKE '%da%';
+SELECT title, author_fname FROM books
+WHERE author_fname LIKE 'da%';
+SELECT title, author_fname FROM books
+WHERE title LIKE 'the';
+SELECT title, author_fname FROM books
+WHERE title LIKE '%the%';
+
+SELECT title, stock_quantity FROM books
+WHERE stock_quantity LIKE '___';
+SELECT title, stock_quantity FROM books;
+SELECT title FROM books
+WHERE title LIKE '%\%%';
+SELECT title FROM books
+WHERE title LIKE '%\_%';
