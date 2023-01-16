@@ -2,7 +2,7 @@
 
 ## 데이터 명령문
 
-- INSERT INTO table_name(column_name) VALUES (data);
+### INSERT INTO table_name(column_name) VALUES (data);
   - 데이터 삽입
 
 ```sql
@@ -44,7 +44,7 @@ VALUES  ('Charlie', 10),
 
 ## NOT NULL & DEFAULT
 
-- NOT NULL
+### NOT NULL
   - NULL을 허용하고 싶지 않을때 사용
 
 ```sql
@@ -60,7 +60,7 @@ CREATE TABLE cats (
     )
 ```
 
-- DEFAULT
+### DEFAULT
   - 빈값의 데이터가 들어왔을때 지정할 기본값
 
 ```sql
@@ -76,7 +76,7 @@ CREATE TABLE cats (
     )
 ```
 
-- NOT NULL 과 DEFAULT 키워드 둘다 사용하는 경우
+### NOT NULL 과 DEFAULT 키워드 둘다 사용하는 경우
 
 ```sql
 -- DEFAULT를 지정했는데 왜 NOT NULL을 같이 사용하는지에 대한 예시
