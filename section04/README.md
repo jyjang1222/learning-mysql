@@ -29,7 +29,7 @@ VALUES  ('Charlie', 10),
         ('Lazy Bear', 1);
 ```
 
-- SELECT \* FROM table_name;
+### SELECT \* FROM table_name;
   - 데이터 확인
 
 ## 테이블 Null열의 의미
@@ -101,6 +101,7 @@ INSERT INTO cats4(name, age) VALUES(NULL, NULL);
 
 ## 테이블 기본키 지정하기
 
+### PRIMARY KEY & AUTO_INCREMENT
 - 기본키의 이름을 지정한 뒤에 **PRIMARY KEY (id_column_name)** 키워드를 사용
 
 ```sql
