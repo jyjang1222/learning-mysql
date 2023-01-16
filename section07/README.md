@@ -12,11 +12,9 @@
 ```sql
 SELECT author_fname, author_lname FROM books;
 SELECT CONCAT('Hello', ' ', 'World');
-SELECT
-	CONCAT(author_fname, ' ', author_lname) AS full_name
+SELECT CONCAT(author_fname, ' ', author_lname) AS full_name
 FROM books;
-SELECT author_fname,
-	CONCAT(author_fname, ' ', author_lname) AS full_name
+SELECT author_fname, CONCAT(author_fname, ' ', author_lname) AS full_name
 FROM books;
 SELECT author_fname AS first, author_lname AS last,
 CONCAT(author_fname, ' ', author_lname) AS full
@@ -25,14 +23,12 @@ SELECT author_fname AS first, author_lname AS last,
 CONCAT(author_fname, ' ', author_lname) AS full,
 CONCAT(author_lname, ' ', author_fname) AS reverse_full
 FROM books;
-
-SELECT
-	CONCAT_WS('-', title, author_fname, author_lname)
+SELECT CONCAT_WS('-', title, author_fname, author_lname)
 FROM books;
 ```
 
 - CONCAT_WS(Concatenate With Separator)
-- 칼럼의 값들을 연결시켜 나타내고 싶을때 사용하는 함수이다.
+  - 칼럼의 값들을 연결시켜 나타내고 싶을때 사용하는 함수이다.
 
 ### SUBSTR() == SUBSTRING()
 
@@ -82,10 +78,10 @@ SELECT CHAR_LENGTH('hello world');
 SELECT author_lname, CHAR_LENGTH(author_lname) AS 'length' FROM books;
 SELECT
 	CONCAT(
-		author_lname,
-        ' is ',
-        CHAR_LENGTH(author_lname),
-        ' characters long') AS print_length
+    author_lname,
+    ' is ',
+    CHAR_LENGTH(author_lname),
+    ' characters long') AS print_length
 FROM books;
 ```
 
