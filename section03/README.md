@@ -40,6 +40,7 @@
 
 ## 테이블 명령문
 
+### CREATE TABLE table_name (column_names)
 - 테이블 생성
 
 ```sql
