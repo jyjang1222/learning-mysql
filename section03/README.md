@@ -18,16 +18,16 @@
 
 ## 데이터베이스 명령문
 
-- SHOW DATABASES;
-  - 사용 가능한 데이터베이스를 나열
-- CREATE DATABASE database_name;
-  - 데이터베이스 생성을 위한 명령
-- DROP DATABASE database_name;
-  - 데이터베이서 제거를 위한 명령
-- USE database_name;
-  - 특정 데이터베이스 사용
-- SELECT database();
-  - 현재 사용중인 데이터베이스 확인
+### SHOW DATABASES;
+- 사용 가능한 데이터베이스를 나열
+### CREATE DATABASE database_name;
+- 데이터베이스 생성을 위한 명령
+### DROP DATABASE database_name;
+- 데이터베이서 제거를 위한 명령
+### USE database_name;
+- 특정 데이터베이스 사용
+### SELECT database();
+- 현재 사용중인 데이터베이스 확인
 
 ## 관계형 데이터베이스
 
@@ -58,11 +58,11 @@ CREATE TABLE cats (
     )
 ```
 
-- SHOW TABLES;
-  - 테이블들의 확인 (현재 사용중인 데이터베이스)
-- SHOW COLUMNS FROM table_name;
-  - 테이블 내의 칼럼들 확인
-- DESC table_name;
-  - 테이블 내의 칼럼들 확인 (바로위 명령문과 기능 동일)
-- DROP TABLE table_name;
-  - 테이블 삭제
+### SHOW TABLES;
+- 테이블들의 확인 (현재 사용중인 데이터베이스)
+### SHOW COLUMNS FROM table_name;
+- 테이블 내의 칼럼들 확인
+### DESC table_name;
+- 테이블 내의 칼럼들 확인 (바로위 명령문과 기능 동일)
+### DROP TABLE table_name;
+- 테이블 삭제
