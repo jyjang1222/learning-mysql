@@ -93,3 +93,162 @@ SELECT UPPER('hello world');
 SELECT LOWER('HELLO WORLD');
 -- hello world
 ```
+
+### CONCAT()
+- 문자열 이어붙이기
+```sql
+SELECT CONCAT('aaa', 'bbb', 'ccc'); -- aaabbbccc
+```
+
+### INSERT()
+```sql
+SELECT INSERT('abcde', 2, 3, 'bbb'); -- abbbe
+- 2번째부터 3개를 삭제한 후, 삽입
+```
+
+### INSERT()
+```sql
+SELECT INSERT('aaaa', 2, 0, 'bbb');	-- abbbaaa
+- 2번째부터 삽입
+```
+
+### REPLACE()
+```sql
+SELECT REPLACE('aabbcc', 'bb', 'ff');	-- aaffcc
+- 'bb'를 'ff'로 변경
+```
+
+### INSTR()
+```sql
+SELECT INSTR('안녕하세요', '하세');	-- 3
+- '하세'라는 문자열이 있으면 해당 문자열의 시작 위치(=인덱스)
+```
+
+### INSTR()
+```sql
+SELECT INSTR('안녕하세요', '방갑');	-- 0
+- 해당 문자열이 없으면 0
+```
+
+### LEFT()
+```sql
+SELECT LEFT('abcdef', 3); -- abc
+```
+- 왼쪽에서부터 3개를 제외한 나머지 삭제
+
+### RIGHT()
+```sql
+SELECT RIGHT('abcdef', 3); -- def
+```
+- 오른쪽에서부터 3개를 제외한 나머지 삭제
+
+### MID()
+```sql
+SELECT MID('abcdefg', 2, 3) -- bcd
+```
+- 2번째에서부터 3개를 제외한 나머지 삭제
+
+### LTRIM, RTRIM, TRIM
+```sql
+SELECT CONCAT('[', '         abc        ', ']'); -- 공백제거 없이 연결
+SELECT CONCAT('[', LTRIM('         abc        '), ']');	-- LTRIM() : 왼쪽 공백 제거 후 연결
+SELECT CONCAT('[', RTRIM('         abc        '), ']');	-- RTRIM() : 오른쪽 공백 제거 후 연결
+SELECT CONCAT('[', TRIM('         abc        '), ']');	-- TRIM()  : 좌우 공백 제거 후 연결
+```
+
+### LCASE, LOWER
+```sql
+SELECT LCASE('acDDefg'); -- 소문자 변환
+SELECT LOWER('acDDefg'); -- 소문자 변환
+```
+
+### UCASE, UPPER
+```sql
+SELECT UCASE('acDDefg'); -- 대문자 변환
+SELECT UPPER('acDDefg'); -- 대문자 변환
+```
+
+### REVERSE
+```sql
+SELECT REVERSE('acDDefg'); -- 반전
+```
+
+## 숫자 함수
+
+### ABS()		
+- 절대값
+### CEIL()	
+- 소수점 올림
+### FLOOR()	
+- 소수점 버림
+### ROUND()	
+- 소수점 반올림(자리수 지정 가능)
+### TRUNCATE()
+- 소수점 버림(자리수 지정 가능)
+### POW()		
+- x의 y승
+### MOD()		
+- 나머지
+### GREATEST()
+- max
+### LEAST()	
+- min
+
+```sql
+SELECT ABS(100), ABS(-100);
+
+SELECT ROUND(3.5), ROUND(3.1);
+SELECT CEIL(3.5), CEIL(3.1);
+SELECT FLOOR(3.5), FLOOR(3.1);
+
+SELECT ROUND(3.14356, 0), ROUND(3.51234, 0); -- 소수점 이하 0자리
+SELECT ROUND(3.14356, 1), ROUND(3.55234, 1); -- 소수점 이하 1자리
+SELECT ROUND(13.14356, -1), ROUND(15.55234, -1); -- 1의 자리
+
+SELECT TRUNCATE(3.14356, 0), TRUNCATE(3.51234, 0); -- 소수점 이하 0자리
+SELECT TRUNCATE(3.14356, 1), TRUNCATE(3.55234, 1); -- 소수점 이하 1자리
+SELECT TRUNCATE(13.14356, -1), TRUNCATE(15.55234, -1); -- 1의 자리
+
+SELECT POW(10, 3);
+SELECT MOD(10, 3);
+SELECT GREATEST(10, 3, 4, 5, 3, 6);
+SELECT LEAST(10, 3, 4, 5, -3, 6);
+```
+
+## 날짜 함수
+
+### 날짜와 시간
+```sql
+SELECT NOW();
+SELECT SYSDATE();
+SELECT CURRENT_TIMESTAMP();
+```
+
+### 날짜
+```sql
+SELECT CURRENT_DATE();
+SELECT CURDATE();
+```
+
+### 시간
+```sql
+SELECT CURRENT_TIME();
+SELECT CURTIME();
+
+SELECT NOW(), YEAR(NOW());
+SELECT NOW(), MONTH(NOW());
+SELECT NOW(), DAY(NOW());
+SELECT(CONCAT(YEAR(NOW()), '년 ', MONTH(NOW()), '월 ', DAY(NOW()), '일'));
+
+SELECT NOW(), MONTHNAME(NOW());
+SELECT DAYNAME(NOW());
+
+SELECT NOW(), DAYOFWEEK(NOW());		# 일요일 = 1
+SELECT NOW(), DAYOFYEAR(NOW());		# 올해의 몇번째 날
+SELECT NOW(), WEEK(NOW());			# 올해의 몇번째 주
+```
+
+### 포맷
+```sql
+SELECT NOW(), DATE_FORMAT(NOW(), '%Y년 %m월 %d일, %H시 %i분 %S초');
+```
