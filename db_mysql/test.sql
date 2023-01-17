@@ -179,34 +179,71 @@ SELECT STUDENT_NAME, STUDENT_ADDR, STUDENT_HEIGHT FROM student
 ORDER BY STUDENT_HEIGHT DESC;
 
 -- 20. 1학년 학생의 이름, 학년, 주소, 몸무게 데이터를 검색하라(단 ,반드시 체중이 적은 학생부터 출력하라)
-
+SELECT STUDENT_NAME, STUDENT_GRADE, STUDENT_ADDR, STUDENT_HEIGHT FROM student
+WHERE STUDENT_GRADE = 1 ORDER BY STUDENT_WEIGHT ASC;
 
 -- 21. 1학년 학생의 이름, 학년, 키, 몸무게 데이터를 검색하라(단, 키 내림차순으로 정렬하고, 같은 키는 몸무게 오름차순으로 정렬)
+SELECT STUDENT_NAME, STUDENT_GRADE, STUDENT_HEIGHT, STUDENT_WEIGHT FROM student
+WHERE STUDENT_GRADE = 1 ORDER BY STUDENT_HEIGHT DESC, STUDENT_WEIGHT ASC;
 
 -- 22. 학생의 번호, 이름, 주소를 검색하되 이름을 가나다 순으로 정렬해라
+SELECT STUDENT_NO, STUDENT_NAME, STUDENT_ADDR FROM student
+ORDER BY STUDENT_NAME ASC;
 
 -- 23. 학생 테이블에서 '보아' 학생과 학년이 동일한 모든 학생의 이름과 키, 몸무게를 검색하라
+SELECT * FROM student
+WHERE STUDENT_GRADE = (SELECT STUDENT_GRADE FROM student WHERE STUDENT_NAME = '보아');
 
 -- 24. 1번 학과 학생들의 평균 키보다 작은 학생의 이름, 학년, 키를 검색하라
+SELECT STUDENT_NAME, STUDENT_GRADE, STUDENT_HEIGHT FROM student
+WHERE STUDENT_HEIGHT < (SELECT AVG(STUDENT_HEIGHT) FROM student WHERE STUDENT_MAJOR_NO = 1);
 
 -- 25. '김태희' 학생과 학년이 같고, '김태희' 학생보다 큰 학생의 이름, 학년, 키를 검색
+SELECT STUDENT_NAME, STUDENT_GRADE, STUDENT_HEIGHT FROM student
+WHERE 
+	STUDENT_GRADE = (SELECT STUDENT_GRADE FROM student WHERE STUDENT_NAME = '김태희') AND
+    STUDENT_HEIGHT > (SELECT STUDENT_HEIGHT FROM student WHERE STUDENT_NAME = '김태희');
 
 -- 26. 키가 165인 학생의 번호, 이름, 키를 검색하라
+SELECT STUDENT_NO, STUDENT_NAME, STUDENT_HEIGHT FROM student
+WHERE STUDENT_HEIGHT = 165;
 
 -- 27. 학생의 수를 검색하라
+SELECT COUNT(*) FROM student;
 
 -- 29. 번호가 1인 과목의 평균 점수를 검색하라
+SELECT AVG(SCORE) FROM course_history WHERE STUDENT_NO = 1;
 
 -- 30. 과목별 평균 점수를 검색하라
+SELECT SUBJECT_NO, TRUNCATE(AVG(SCORE), 0) AS AVG
+FROM course_history GROUP BY SUBJECT_NO;
 
 -- 32. 누적학생 수가 네 명 이상인 과목의 평균 점수를 검색하라
+SELECT SUBJECT_NO, COUNT(*), AVG(SCORE)
+FROM course_history GROUP BY SUBJECT_NO
+HAVING COUNT(*) >= 4;
 
 -- 34. 학생들의 학번, 이름, 소속학과 이름을 검색하라
+SELECT student.STUDENT_NO, student.STUDENT_NAME, major.MAJOR_NAME
+FROM student, major
+WHERE student.STUDENT_MAJOR_NO = major.MAJOR_NO;
 
 -- 35. 교수의 번호, 이름, 소속 학과 이름을 검색하라
+SELECT p.PROFESSOR_NO, p.PROFESSOR_NAME, m.MAJOR_NAME AS PROFESSOR_MAJOR_NAME 
+FROM professor p, major m
+WHERE p.PROFESSOR_MAJOR_NO = m.MAJOR_NO;
 
 -- 36. '채영' 학생의 번호, 이름, 소속 학과 이름을 검색하라
+SELECT STUDENT_NO, STUDENT_NAME, MAJOR_NAME
+FROM student s, major m
+WHERE s.STUDENT_MAJOR_NO = m.MAJOR_NO;
 
 -- 37. 키가 180 이상인 학생의 번호, 이름, 키, 소속 학과 이름을 검색하라
+SELECT s.STUDENT_NO, s.STUDENT_NAME, s.STUDENT_HEIGHT, m.MAJOR_NAME
+FROM student s, major m
+WHERE s.STUDENT_MAJOR_NO = m.MAJOR_NO AND s.STUDENT_HEIGHT > 180;
 
--- 38. 학점에A가 포함된학생들의 이름 출력 
+-- 38. 학점에 A가 포함된 학생들의 이름 출력
+SELECT s.STUDENT_NAME, c.CREDITS
+FROM course_history c, student s
+WHERE c.CREDITS = 'A' AND c.STUDENT_NO = s.STUDENT_NO GROUP BY s.STUDENT_NAME;
