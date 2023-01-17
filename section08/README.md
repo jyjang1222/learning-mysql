@@ -28,6 +28,10 @@ FROM books ORDER BY 2;
 -- author_lname을 우선 정렬후에 author_fname을 정렬한다.
 SELECT author_fname, author_lname FROM books
 ORDER BY author_lname, author_fname;
+
+-- 1학년 학생의 이름, 학년, 키, 몸무게 데이터를 검색하라(단, 키 내림차순으로 정렬하고, 같은 키는 몸무게 오름차순으로 정렬)
+SELECT STUDENT_NAME, STUDENT_GRADE, STUDENT_HEIGHT, STUDENT_WEIGHT FROM student
+WHERE STUDENT_GRADE = 1 ORDER BY STUDENT_HEIGHT DESC, STUDENT_WEIGHT DESC;
 ```
 
 - 기본적으로 오름차순으로 정렬돼서 ASC는 생략이 가능하다. (숫자, 문자 순)
