@@ -1,3 +1,8 @@
+# 단축키
+- 1개의 SQL문 실행 : 커서가 있는 1개의 SQL문을 실행 <code>Ctrl+Enter</code>
+- 여러개(다중) SQL문 실행 : 실행하고자 하는 SQL문들의 영역을 드래그한 후 <code>Ctrl+Shift+Enter</code>
+- SQL창의 전체 모두 실행 : SQL창의 모든 SQL문을 실행 <code>Ctrl+Shift+Enter</code>
+
 # 1. 데이터베이스 개요
 
 ## 데이터베이스란
