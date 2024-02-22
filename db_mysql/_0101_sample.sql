@@ -21,7 +21,7 @@ DESC member; -- 테이블이 잘생성된건지 확인할수있다.
 DROP TABLE sample01;
 
 -- 저장방식은 컬럼명(no, name, birthday, address)을 써도되고 안써도된다. (정확히 하기위해서는 쓰는것이 좋다)
--- 저장 문법 
+-- 저장 문법
 -- INSERT INTO 테이블명 (컬럼명) VALUES (저장값); 
 INSERT INTO sample01 VALUES(1, '박준용', '1976-10-18', '대구광역시 수성구');
 INSERT INTO sample01 (no, name, birthday, address) VALUES(2, '김재진', '1987-02-14', '대구광역시 동구');

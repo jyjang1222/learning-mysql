@@ -1,5 +1,5 @@
 
-# DECIMAL(자리소, 소수점자리수)
+# DECIMAL(자리수, 소수점자리수)
 --  예) DECIMAL(19, 4) = 총 19자리까지 표현되며, 소수점은 4자리까지 표현
 CREATE TABLE account(
 	id INT AUTO_INCREMENT PRIMARY KEY,
