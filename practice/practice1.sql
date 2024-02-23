@@ -1,11 +1,11 @@
 CREATE DATABASE _bookshop;
 USE _bookshop;
-DROP DATABASE _bookshop;
+DROP DATABASE the_skin_shop;
 
 CREATE TABLE member(
 	member_no INT,
     member_id VARCHAR(20),
-	member_pw VARCHAR(20),
+    member_pw VARCHAR(20),
     member_name VARCHAR(20),
     member_gender VARCHAR(1),
     member_point INT,
@@ -44,7 +44,7 @@ CREATE TABLE cart(
 
 DESC cart;
 
-INSERT INTO member VALUES (1, 'qwer', '1234', '홍길동', 'm',  0, '2021-01-01 12:11:30');
+INSERT INTO member VALUES (1, 'qwer', '1234', '홍길동', 'm', 0, '2021-01-01 12:11:30');
 INSERT INTO member VALUES (2, 'java', '1234', '김유신', 'm',  0, '2021-01-02 03:20:54');
 INSERT INTO member VALUES (3, 'haha', '1234', '신혜정', 'w', 0, NOW()); -- now() 함수는 현재 날짜를 의미한다. 
 INSERT INTO member VALUES (4, 'tiger', '1234', '선우호랭', 'w', 0, '2020-12-25 05:43:11');
@@ -86,8 +86,7 @@ INSERT INTO cart VALUES(7, 'tiger', 13500, 1, 1001, '나미야 잡화점의 기�
 
 SELECT * FROM cart;
 
-UPDATE cart SET buyer='asdf' WHERE cart_no=2;
-DELETE FROM cart WHERE cart_no=2;
+UPDATE cart SET buyer='tiger2' WHERE cart_no=2;
 
 UPDATE cart SET buyer='tiger3' WHERE cart_no=3;
 DELETE FROM cart WHERE cart_no='7';
