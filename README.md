@@ -288,6 +288,22 @@ SELECT * FROM cats WHERE name='Egg';
 SELECT * FROM cats WHERE name='EGG';
 ```
 
+### IS NULL, IS NOT NULL
+- IS NULL 키워드는 NULL 값(비어있는 값)을 찾을 때 쓰인다.
+```sql
+-- column_name가 null인 값만 조회하기
+SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+```
+- IS NOT NULL 키워드는 NULL 값이 아닌 값(비어있지 않은 값)을 찾을 때 사용된다.
+```sql
+-- column_names가 null이 아닌 값만 조회하기
+SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+```
+
 ### AS 키워드
 
 - AS 키워드는 alias의 약어로 칼럼의 이름을 변경해서 표시하고자할때 쓰인다.
