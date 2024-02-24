@@ -263,9 +263,6 @@ INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
 ## Read
 
 ### SELECT 키워드
-
-- SELECT 키워드를 사용하여 특정열의 데이터 열람이 가능하다.
-
 ```sql
 -- 모든열의 데이터를 가져오려면 * 를 입력하면 된다.
 SELECT * FROM cats;
@@ -273,68 +270,61 @@ SELECT * FROM cats;
 SELECT name FROM cats;
 SELECT name, age, cat_id From cats;
 ```
+- SELECT 키워드를 사용하여 특정열의 데이터 열람이 가능하다.
 
 ### WHERE 키워드
-
-- 구체적인 데이터를 얻고자 한다면 WHERE 키워드를 사용한다.
-  - 업데이트는 특정 데이터를 지정하는 방식으로 주로 쓰여지기 때문에 SELECT 보다는 WHERE 이 주로 쓰인다.
-- WHERE 키워드를 통해 조건식 작성이 가능하다.
-
 ```sql
 SELECT * FROM cats WHERE age = 4;
 -- 대소문자를 구분하지 않고 데이터를 가져온다.
 SELECT * FROM cats WHERE name='Egg';
 SELECT * FROM cats WHERE name='EGG';
 ```
+- 구체적인 데이터를 얻고자 한다면 WHERE 키워드를 사용한다.
+  - 업데이트는 특정 데이터를 지정하는 방식으로 주로 쓰여지기 때문에 SELECT 보다는 WHERE 이 주로 쓰인다.
+- WHERE 키워드를 통해 조건식 작성이 가능하다.
 
 ### AS 키워드
-
-- AS 키워드는 alias의 약어로 칼럼의 이름을 변경해서 표시하고자할때 쓰인다.
-- 예) cats테이블의 name칼럼 dogs테이블의 name칼럼의 데이터를 가져왔는데 칼럼의 이름이 같아 혼동할 수 있기때문에 AS 키워드가 쓰인다.
-
 ```sql
--- AS 키워드 사용 예시
 SELECT name AS cat_name FROM cats;
 SELECT name AS dog_name FROM dogs;
 ```
+- AS 키워드는 alias의 약어로 칼럼의 이름을 변경해서 표시하고자할때 쓰인다.
+- 예) cats테이블의 name칼럼 dogs테이블의 name칼럼의 데이터를 가져왔는데 칼럼의 이름이 같아 혼동할 수 있기때문에 AS 키워드가 쓰인다.
 
 ### IS NULL, IS NOT NULL, IFNULL(data, value)
-- IS NULL 키워드는 NULL 값(비어있는 값)을 찾을 때 쓰인다.
 ```sql
 -- column_name가 null인 값만 조회하기
 SELECT column_names
 FROM table_name
 WHERE column_name IS NULL;
 ```
-- IS NOT NULL 키워드는 NULL 값이 아닌 값(비어있지 않은 값)을 찾을 때 사용된다.
+- IS NULL 키워드는 NULL 값(비어있는 값)을 찾을 때 쓰인다.
+  
 ```sql
 -- column_names가 null이 아닌 값만 조회하기
 SELECT column_names
 FROM table_name
 WHERE column_name IS NOT NULL;
 ```
-- IFNULL(data, value) 함수는 NULL인 값을 0으로 출력하고 싶으면 사용한다.
+- IS NOT NULL 키워드는 NULL 값이 아닌 값(비어있지 않은 값)을 찾을 때 사용된다.
+
 ```sql
 SELECT PT_NAME, PT_NO, GEND_CD, AGE, IFNULL(TLNO, 'NONE') AS TLNO FROM PATIENT
 WHERE GEND_CD='W' AND AGE <= 12
 ORDER BY AGE DESC, PT_NAME ASC
 ```
-
-###
+- IFNULL(data, value) 함수는 NULL인 값을 0으로 출력하고 싶으면 사용한다.
 
 ## UPDATE
 
 ### UPDATE & SET 키워드
-
-- UPDATE키워드로 업데이트할 테이블을 선택하고 수정사항은 SET키워드로 한다.
-
 ```sql
 UPDATE cats SET breed = 'Shorthair'
 WHERE breed = 'Tabby';
 ```
+- UPDATE키워드로 업데이트할 테이블을 선택하고 수정사항은 SET키워드로 한다.
 
 ## DELETE
-
 ```sql
 -- 특정 데이터 삭제
 DELETE FROM cats WHERE name = 'Egg';
