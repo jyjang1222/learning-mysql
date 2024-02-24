@@ -267,7 +267,6 @@ INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
 - SELECT 키워드를 사용하여 특정열의 데이터 열람이 가능하다.
 
 ```sql
--- 예시
 -- 모든열의 데이터를 가져오려면 * 를 입력하면 된다.
 SELECT * FROM cats;
 -- 특정 열의 데이터만을 얻고 싶은 경우
@@ -288,7 +287,18 @@ SELECT * FROM cats WHERE name='Egg';
 SELECT * FROM cats WHERE name='EGG';
 ```
 
-### IS NULL, IS NOT NULL
+### AS 키워드
+
+- AS 키워드는 alias의 약어로 칼럼의 이름을 변경해서 표시하고자할때 쓰인다.
+- 예) cats테이블의 name칼럼 dogs테이블의 name칼럼의 데이터를 가져왔는데 칼럼의 이름이 같아 혼동할 수 있기때문에 AS 키워드가 쓰인다.
+
+```sql
+-- AS 키워드 사용 예시
+SELECT name AS cat_name FROM cats;
+SELECT name AS dog_name FROM dogs;
+```
+
+### IS NULL, IS NOT NULL, IFNULL(data, value)
 - IS NULL 키워드는 NULL 값(비어있는 값)을 찾을 때 쓰인다.
 ```sql
 -- column_name가 null인 값만 조회하기
@@ -303,17 +313,14 @@ SELECT column_names
 FROM table_name
 WHERE column_name IS NOT NULL;
 ```
-
-### AS 키워드
-
-- AS 키워드는 alias의 약어로 칼럼의 이름을 변경해서 표시하고자할때 쓰인다.
-- 예) cats테이블의 name칼럼 dogs테이블의 name칼럼의 데이터를 가져왔는데 칼럼의 이름이 같아 혼동할 수 있기때문에 AS 키워드가 쓰인다.
-
+- IFNULL(data, value) 함수는 NULL인 값을 0으로 출력하고 싶으면 사용한다.
 ```sql
--- AS 키워드 사용 예시
-SELECT name AS cat_name FROM cats;
-SELECT name AS dog_name FROM dogs;
+SELECT PT_NAME, PT_NO, GEND_CD, AGE, IFNULL(TLNO, 'NONE') AS TLNO FROM PATIENT
+WHERE GEND_CD='W' AND AGE <= 12
+ORDER BY AGE DESC, PT_NAME ASC
 ```
+
+###
 
 ## UPDATE
 
