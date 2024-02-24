@@ -101,7 +101,6 @@ CREATE TABLE cats (
 ## 데이터 명령문
 
 ### INSERT INTO table_name(column_name) VALUES (data);
-  - 데이터 삽입
 
 ```sql
 -- 데이터 삽입
@@ -143,7 +142,6 @@ VALUES  ('Charlie', 10),
 ## NOT NULL & DEFAULT
 
 ### NOT NULL
-  - NULL을 허용하고 싶지 않을때 사용
 
 ```sql
 CREATE TABLE table_name (
@@ -157,10 +155,9 @@ CREATE TABLE cats (
         age INT NOT NULL,
     )
 ```
+- NULL을 허용하고 싶지 않을때 사용
 
 ### DEFAULT
-  - 빈값의 데이터가 들어왔을때 지정할 기본값
-
 ```sql
 CREATE TABLE table_name (
         column_name data_type DEFAULT default_value,
@@ -173,6 +170,7 @@ CREATE TABLE cats (
         age INT DEFAULT 99,
     )
 ```
+- 빈값의 데이터가 들어왔을때 지정할 기본값
 
 ### NOT NULL 과 DEFAULT 키워드 둘다 사용하는 경우
 
@@ -216,32 +214,13 @@ CREATE TABLE unique_cats (
     name VARCHAR(100),
     age INT,
 );
-/*
-| Field | Type        | Null | Key | Default | Extra |
-| ----- | ----------- | ---- | --- | ------- | ----- |
-| cat_id| int         | NO   | PRI | Null    |       |
-| name  | varchar(50) | YES  |     | Null    |       |
-| age   | int         | YES  |     | Null    |       |
-*/
-INSERT INTO unique_cats(cat_id, name, age) VALUES(1, 'Fred', 23);
-INSERT INTO unique_cats(cat_id, name, age) VALUES(2, 'Louise', 3);
+
 
 CREATE TABLE unique_cats2 (
     cat_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
     age INT,
 );
-/*
-| Field  | Type        | Null | Key | Default | Extra          |
-| ------ | ----------- | ---- | --- | ------- | -------------- |
-| cat_id | int         | NO   | PRI | Null    | auto_increment |
-| name   | varchar(50) | YES  |     | Null    |                |
-| age    | int         | YES  |     | Null    |                |
-*/
-INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
-INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
-INSERT INTO unique_cats2(name, age) VALUES('Jiff', 3);
-INSERT INTO unique_cats2(name, age) VALUES('Skippy', 4);
 ```
 
 - 데이터가 같을 때 기본키를 지정해주면 고유한 데이터를 만들 수 있다.
