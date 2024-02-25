@@ -739,3 +739,28 @@ SELECT buyer, SUM(buy_count) FROM cart GROUP BY buyer;
 HAVING SUM(buy_count) >= 2;
 ```
 - GROUP BY로 만든 테이블에서는 조건을 HAVING을 사용한다.
+
+# 10. 서브쿼리
+```sql
+-- book테이블에서 가장 가격이 높은 도서 정보 가져오기
+SELECT book_title, book_price FROM book
+WHERE book_price = (SELECT MAX(book_price) FROM book);
+```
+## 함수종류
+### ANY()
+```sql
+select *
+from student
+where id = any('1001', '1002', '1003')
+-- 1001, 1002, 1003 중 하나라도 만족하는 id를 포함하는 전체 행을 출력
+```
+- 주로 서브쿼리에서 사용하는 다중 행 연산자이다. 조건을 만족하는 값이 하나라도 있다면 결과를 리턴한다.
+
+### ALL()
+```sql
+select *
+from student
+where id = all('1001', '1002', '1003')
+-- 1001, 1002, 1003 모두를 가지는 값을 반환한다.
+```
+- 주로 서브쿼리에서 사용하는 다중 행 연산자이다. 모든조건을 만족하는 결과를 리턴한다.
