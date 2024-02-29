@@ -765,3 +765,15 @@ where id = all('1001', '1002', '1003')
 -- 1001, 1002, 1003 모두를 가지는 값을 반환한다.
 ```
 - 주로 서브쿼리에서 사용하는 다중 행 연산자이다. 모든조건을 만족하는 결과를 리턴한다.
+
+### IN(), NOT IN()
+```sql
+SELECT CATEGORY, PRICE AS MAX_PRICE, PRODUCT_NAME FROM FOOD_PRODUCT
+WHERE (CATEGORY, PRICE) IN 
+    (SELECT CATEGORY, MAX(PRICE) FROM FOOD_PRODUCT
+    WHERE CATEGORY IN ('과자','국', '김치', '식용유')
+    GROUP BY CATEGORY)
+```
+- OR을 대체 가능하다
+- IN 안에 서브쿼리 를 넣어서 여러개의 값을 동시에 만족하는 데이터를 추출 가능하다
+- NOT IN() 은 값이 포함 되지않은 데이터 추출
