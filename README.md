@@ -714,6 +714,17 @@ SELECT MAX(book_price) FROM book;
 -- [문제] book테이블에서 도서 가격이 가장 낮은 도서가격 가져오기
 SELECT MIN(book_price) FROM book;
 ```
+### WITH ROLLUP
+```sql
+-- 주문음료별
+SELECT ORDER_ITEM, COUNT(*) FROM starbucks_order
+GROUP BY ORDER_ITEM WITH ROLLUP;
+```
+| ORDER_ITEM | COUNT(*) |
+|---|---|
+| 아메리카노  | 7  |
+| 카페라떼  |  3 |
+| NULL  | 10  |
 
 ## GROUP BY를 이용해 그룹화하기
 ### GROUP BY
