@@ -293,7 +293,7 @@ SELECT PT_NAME, PT_NO, GEND_CD, AGE, IFNULL(TLNO, 'NONE') AS TLNO FROM PATIENT
 WHERE GEND_CD='W' AND AGE <= 12
 ORDER BY AGE DESC, PT_NAME ASC
 ```
-- IFNULL(data, value) 함수는 NULL인 값을 0으로 출력하고 싶으면 사용한다.
+- IFNULL(data, value) 함수는 data가 NULL인 값을 value로 출력하고 싶으면 사용한다.
 
 ## UPDATE
 
